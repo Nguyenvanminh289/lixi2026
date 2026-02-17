@@ -85,7 +85,7 @@
     resultEl.textContent = `${playerName} nhận được ${formatVND(value)} !!!`;
 
     // show proof message
-    proofText.textContent = `Chúc mừng ${playerName} đã nhận được ${formatVND(value)} từ Nguyễn Văn Minh. Bây giờ hãy chụp màn hình và liên hệ cho Minh để nhận lộc đầu năm !!!`;
+    proofText.textContent = `Chúc mừng ${playerName} đã nhận được ${formatVND(value)} từ Nguyễn Văn Minh. Hãy chụp màn hình và liên hệ ngay cho Minh để nhận lộc đầu năm !!!`;
     proofEl.style.display = 'block';
     // show proof image if available (image src set in index.html). Make it visible.
     if(proofImage){ proofImage.style.display = 'block'; }
@@ -321,6 +321,7 @@
   });
 
 })();
+
 
 
 
