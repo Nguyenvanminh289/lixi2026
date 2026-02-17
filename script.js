@@ -179,7 +179,7 @@
   function startBackgroundMusic(){
     // Try HTMLAudio element first (attempt unmuted autoplay)
     if(bgAudio && bgAudio.src){
-      bgAudio.volume = 0.7; // reduce volume
+      bgAudio.volume = 1; // reduce volume
       // ensure unmuted attempt
       try{ bgAudio.muted = false; }catch(e){}
       const p = bgAudio.play();
@@ -321,4 +321,5 @@
   });
 
 })();
+
 
