@@ -85,7 +85,7 @@
     resultEl.textContent = `${playerName} nhận được ${formatVND(value)} !!!`;
 
     // show proof message
-    proofText.textContent = `Chúc mừng ${playerName} đã nhận được ${formatVND(value)} từ Nguyễn Văn Minh. Hãy chụp màn hình và liên hệ ngay cho Minh để nhận lộc đầu năm !!!`;
+    proofText.textContent = `Chúc mừng ${playerName} đã nhận được ${formatVND(value)} từ Nguyễn Văn Minh. Hãy chụp màn hình và liên hệ ngay cho Minh để nhận lộc đầu năm :333.`;
     proofEl.style.display = 'block';
     // show proof image if available (image src set in index.html). Make it visible.
     if(proofImage){ proofImage.style.display = 'block'; }
@@ -179,7 +179,7 @@
   function startBackgroundMusic(){
     // Try HTMLAudio element first (attempt unmuted autoplay)
     if(bgAudio && bgAudio.src){
-      bgAudio.volume = 1; // reduce volume
+      bgAudio.volume = 1; // set to higher volume
       // ensure unmuted attempt
       try{ bgAudio.muted = false; }catch(e){}
       const p = bgAudio.play();
@@ -271,7 +271,7 @@
     resultEl.textContent = '';
     // Try to start/unmute music now that this is a user gesture
     if(bgAudio){
-      try{ bgAudio.muted = false; bgAudio.volume = 0.35; bgAudio.play().catch(()=>{}); }catch(e){}
+      try{ bgAudio.muted = false; bgAudio.volume = 0.7; bgAudio.play().catch(()=>{}); }catch(e){}
     }
     if(audioCtx && audioCtx.state === 'suspended' && audioCtx.resume){
       audioCtx.resume().catch(()=>{});
@@ -283,7 +283,7 @@
   function enableOnFirstInteraction(){
     function onFirst(){
       if(bgAudio){
-        try{ bgAudio.muted = false; bgAudio.volume = 0.35; bgAudio.play().catch(()=>{}); }catch(e){}
+        try{ bgAudio.muted = false; bgAudio.volume = 0.7; bgAudio.play().catch(()=>{}); }catch(e){}
       }
       if(audioCtx && audioCtx.state === 'suspended' && audioCtx.resume){
         audioCtx.resume().catch(()=>{}).then(()=>startBackgroundMusic());
@@ -301,7 +301,7 @@
   if(typeof audioEnableBtn !== 'undefined' && audioEnableBtn){
     audioEnableBtn.addEventListener('click', ()=>{
       if(bgAudio){
-        try{ bgAudio.muted = false; bgAudio.volume = 0.35; bgAudio.play().then(()=>{ if(audioPrompt) audioPrompt.style.display='none'; }).catch(()=>{ if(audioPrompt) audioPrompt.style.display='none'; }); }catch(e){ if(audioPrompt) audioPrompt.style.display='none'; }
+        try{ bgAudio.muted = false; bgAudio.volume = 0.7; bgAudio.play().then(()=>{ if(audioPrompt) audioPrompt.style.display='none'; }).catch(()=>{ if(audioPrompt) audioPrompt.style.display='none'; }); }catch(e){ if(audioPrompt) audioPrompt.style.display='none'; }
       } else if(audioCtx && audioCtx.state === 'suspended'){
         audioCtx.resume().catch(()=>{}).then(()=>{ startBackgroundMusic(); if(audioPrompt) audioPrompt.style.display='none'; });
       } else {
@@ -321,8 +321,3 @@
   });
 
 })();
-
-
-
-
-
