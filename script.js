@@ -271,7 +271,7 @@
     resultEl.textContent = '';
     // Try to start/unmute music now that this is a user gesture
     if(bgAudio){
-      try{ bgAudio.muted = false; bgAudio.volume = 0.7; bgAudio.play().catch(()=>{}); }catch(e){}
+      try{ bgAudio.muted = false; bgAudio.volume = 1; bgAudio.play().catch(()=>{}); }catch(e){}
     }
     if(audioCtx && audioCtx.state === 'suspended' && audioCtx.resume){
       audioCtx.resume().catch(()=>{});
@@ -283,7 +283,7 @@
   function enableOnFirstInteraction(){
     function onFirst(){
       if(bgAudio){
-        try{ bgAudio.muted = false; bgAudio.volume = 0.7; bgAudio.play().catch(()=>{}); }catch(e){}
+        try{ bgAudio.muted = false; bgAudio.volume = 1; bgAudio.play().catch(()=>{}); }catch(e){}
       }
       if(audioCtx && audioCtx.state === 'suspended' && audioCtx.resume){
         audioCtx.resume().catch(()=>{}).then(()=>startBackgroundMusic());
@@ -301,7 +301,7 @@
   if(typeof audioEnableBtn !== 'undefined' && audioEnableBtn){
     audioEnableBtn.addEventListener('click', ()=>{
       if(bgAudio){
-        try{ bgAudio.muted = false; bgAudio.volume = 0.7; bgAudio.play().then(()=>{ if(audioPrompt) audioPrompt.style.display='none'; }).catch(()=>{ if(audioPrompt) audioPrompt.style.display='none'; }); }catch(e){ if(audioPrompt) audioPrompt.style.display='none'; }
+        try{ bgAudio.muted = false; bgAudio.volume = 1; bgAudio.play().then(()=>{ if(audioPrompt) audioPrompt.style.display='none'; }).catch(()=>{ if(audioPrompt) audioPrompt.style.display='none'; }); }catch(e){ if(audioPrompt) audioPrompt.style.display='none'; }
       } else if(audioCtx && audioCtx.state === 'suspended'){
         audioCtx.resume().catch(()=>{}).then(()=>{ startBackgroundMusic(); if(audioPrompt) audioPrompt.style.display='none'; });
       } else {
@@ -321,3 +321,4 @@
   });
 
 })();
+
