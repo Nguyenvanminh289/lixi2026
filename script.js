@@ -1,6 +1,6 @@
 (() => {
-  const pool = [000000,20000,3000,10000,5000,50000]; // full pool (includes special 50k & 10k)
-  const smallAmounts = [000000,3000,5000]; // user can only get these (10k & 50k locked)
+  const pool = [0,20000,3000,10000,5000,50000]; // full pool (includes special 50k & 10k)
+  const smallAmounts = [0,3000,5000]; // user can only get these (10k & 50k locked)
 
   const el = id => document.getElementById(id);
   const modal = el('nameModal');
@@ -321,5 +321,6 @@
   });
 
 })();
+
 
 
