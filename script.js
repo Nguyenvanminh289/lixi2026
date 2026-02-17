@@ -322,5 +322,28 @@
 
 })();
 
+// 1. Chặn chuột phải
+document.addEventListener('contextmenu', event => {
+    event.preventDefault();
+    alert("Hành động bị chặn! Không được soi code đâu nhé :P");
+});
 
-
+// 2. Chặn các phím tắt mở công cụ kiểm tra (Inspect Element)
+document.onkeydown = function(e) {
+    // Chặn F12
+    if (e.keyCode == 123) {
+        return false;
+    }
+    // Chặn Ctrl+Shift+I (Inspect)
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+        return false;
+    }
+    // Chặn Ctrl+Shift+J (Console)
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+        return false;
+    }
+    // Chặn Ctrl+U (Xem nguồn trang - View Source)
+    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+        return false;
+    }
+};
